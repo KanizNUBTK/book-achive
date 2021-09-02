@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>book-archive-KanizNUBTK</title>
+    <!-- bootstrap CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- css file link -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -16,7 +19,29 @@
     <!-- header end -->
     <!-- main body start -->
     <main>
-        <h1>hello</h1>
+        <section class="container">
+            <div class="bg-dark p-3">
+                <h1 class="text-center text-light fw-bolder">Welcome To Our Book Store</h1>
+            </div>
+            <!-- search field -->
+            <div class="input-group pt-5 ps-5 pe-5 pb-1">
+                <input id="search-field" type="text" class="form-control border border-dark"
+                    placeholder="Find Your Favorite Book..." aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary pt-2 pb-2 ps-5 pe-5 border border-dark" type="button"
+                    id="button-addon2 seacrh-btn" onclick="searchBook()">Search
+                    Books</button>
+            </div>
+            <!-- error message show -->
+            <div id="error-mgs" class="row"></div>
+            <!-- finding search number -->
+            <div id="number-found" class="row"></div>
+            <!-- search result -->
+            <div id="search-result" class="row row-cols-1 row-cols-md-4 g-4">
+                
+            </div>
+
+        </section>
     </main>
     <!-- main body end -->
     <!-- footer body start -->
@@ -26,6 +51,10 @@
 
     <!-- javascript file link -->
     <script src="javascript/main.js"></script>
+    <!-- bootstrap script CDN link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
