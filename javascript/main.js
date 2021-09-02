@@ -9,7 +9,9 @@ const searchBook = () =>{
     const url =`https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
     .then(res => res.json())
-    .then(data => {if(data.numFound == 0){
+    .then(data => {
+        // error handling
+        if(data.numFound == 0){
          // clear search value
         const numberFound = document.getElementById('number-found');
         numberFound.innerHTML = '';
