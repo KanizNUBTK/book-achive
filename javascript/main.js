@@ -1,4 +1,4 @@
-const errorMgs = document.getElementById('error-mgs');
+
 // search box loader 
 const searchBook = () =>{
     const searchField = document.getElementById('search-field');
@@ -6,15 +6,24 @@ const searchBook = () =>{
     // clear search value
     searchField.value = '';
     // console.log(searchText);
-    const url =`http://openlibrary.org/search.json?q=${searchText}`;
+    const url =`https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
     .then(res => res.json())
-    .then(data => {displayBook(data.docs);
+    .then(data => {if(data.numFound == 0){
+         // clear search value
+        const numberFound = document.getElementById('number-found');
+        numberFound.innerHTML = '';
+        const searchResult = document.getElementById('search-result');
+       searchResult.innerHTML = '';
+        alert("Sorry Data Not Found");
+    }else{
+        displayBook(data.docs);
         const numberFound = document.getElementById('number-found');
         numberFound.innerHTML = '';
         const p = document.createElement('p');
         p.innerText=`About ${data.numFound} results`;
-        numberFound.appendChild(p);
+        // console.log(data.numFound);
+        numberFound.appendChild(p);}
         });
 }
 
@@ -24,7 +33,7 @@ const displayBook = docs =>{
      // clear search value
     searchResult.innerHTML = '';
     docs.forEach(book =>{
-        // console.log(book);
+        // console.log(book.lenght);
         let authors = '';
         let publishers = '';
         book.author_name ? book.author_name.forEach((author , index) =>{authors = authors + `${index !== 0 ? `,` : ``}${author}`}): authors ='Data Not Aviable';
